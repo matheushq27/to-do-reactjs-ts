@@ -1,0 +1,76 @@
+.headContainer{
+    background: var(--gray-700);
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 48%;
+    margin: auto;
+}
+
+.boxCreateTasks{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: -1.75rem;
+}
+
+.inputTask{
+  height: 3.375rem;
+  width: 38rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--gray-300);
+  border: none;
+}
+
+.inputTask::placeholder {
+    color: var(--white);
+}
+
+.buttonCreateTask{
+    background: var(--blue);
+    padding: 1rem;
+    height: 3.375rem;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+.buttonCreateTask:hover{
+    background: var(--blue-dark);
+    border: 1px solid var(--blue-dark);
+}
+
+.buttonCreateTask svg{
+    margin-left: 0.25rem;
+}
+
+.boxInfosTasks{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.boxInfosTasks span{
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.boxInfosTasks strong{
+ background: var(--gray-300);
+ font-weight: bold;
+ padding: 0.1rem 0.35rem;
+ color: var(--white);
+ border-radius: 25px;
+}
