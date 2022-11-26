@@ -13,7 +13,7 @@
 
 .boxCreateTasks{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center; 
     margin-top: -1.75rem;
 }
@@ -60,6 +60,7 @@
     display: flex;
     align-items: center;
     margin-top: 4rem;
+    margin-bottom: 2rem;
 }
 
 .boxInfosTasks span{
@@ -74,3 +75,18 @@
  color: var(--white);
  border-radius: 25px;
 }
+
+.boxTasks{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.boxTasks img{
+    margin-bottom: 1rem;
+}
+
+.boxTasks p{
+    color: var(--gray-300);
+    font-weight: bold;
+}
+
