@@ -14,6 +14,11 @@
     order: 0;
     align-self: stretch;
     flex-grow: 0;
+    margin-bottom: 0.5rem;
+}
+
+.lineThrough{
+    text-decoration: line-through;
 }
 
 .CardTasks p{

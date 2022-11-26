@@ -5,28 +5,51 @@ import Clipboard from './assets/clipboard.png'
 import { PlusCircle } from 'phosphor-react'
 import { CardTasks } from './components/cardTasks'
 
+interface Task{
+  task: string
+  check: boolean
+}
+
 function App() {
 
   const [task, setTask] = useState([])
   const [valueInput, setValueInput] = useState('')
-
-  function handleDeleteTask(){
-    
-  }
+  const [solvedTasks, setSolvedTasks] = useState(0)
 
   function handleInsertTask(event: ChangeEvent<HTMLInputElement>){
     setValueInput(event.target.value)
   }
 
   function save(){
-    setTask([...task, valueInput])
+    setTask([...task, {task: valueInput, check: false}])
     setValueInput('')
   }
 
   function filterRemoveTask(taskRemove: string){
-    const newArrayTask = task.filter(task => task != taskRemove)
+    const newArrayTask = task.filter(task => task.task != taskRemove)
+    qtdCheckTasks(newArrayTask)
     setTask(newArrayTask)
   }
+
+  function handleCheckTask(taskCheck: string){
+    
+    const newArrayTask = task.filter((task) => {
+      if(task.task == taskCheck){
+        task.check = !task.check
+      }
+      
+      return task
+    })
+
+    qtdCheckTasks(newArrayTask)
+    setTask(newArrayTask)
+  }
+
+  function qtdCheckTasks(newArrayTask: Array<string>){
+    const qtdCheck = newArrayTask.filter(task => task.check)
+    setSolvedTasks(qtdCheck.length)
+  }
+
 
   return (
     <div>
@@ -43,11 +66,11 @@ function App() {
         <div className={styles.containerViewsTasks}>
           <div className={styles.boxInfosTasks}>
             <span>Tarefas criadas <strong>{task.length}</strong></span>
-            <span>Concluídas <strong>0 de {task.length}</strong></span>
+            {task.length > 0 && <span>Concluídas <strong>{solvedTasks} de {task.length}</strong></span>}
           </div>
 
           {task.length > 0 &&
-            task.map(task => <CardTasks key={task} content={task} removeTask={filterRemoveTask}/>)
+            task.map(task => <CardTasks key={task.task} check={task.check} content={task.task} removeTask={filterRemoveTask} checkTask={handleCheckTask} />)
           }
 
           {task.length <= 0  &&
